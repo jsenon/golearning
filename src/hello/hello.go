@@ -1,8 +1,8 @@
 package main
 
 import (
-		"fmt"
-		"stringutil"
+	"fmt"
+	"stringutil"
 )
 
 func main() {
