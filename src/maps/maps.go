@@ -20,4 +20,7 @@ func main() {
 			"state": "solid",
 		},
 	}
+	if el, ok := elements["H"]; ok {
+		fmt.Println(el["name"], el["state"])
+	}
 }
