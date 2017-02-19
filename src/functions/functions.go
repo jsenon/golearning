@@ -29,3 +29,4 @@ func main() {
 }
 
 //Variadic functions wrote func Myfunc(args ...int) int {}
+// function calling functon called functional programming
