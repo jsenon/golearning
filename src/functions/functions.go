@@ -28,5 +28,6 @@ func main() {
 	fmt.Println("Your Result :", factorial(input))
 }
 
-//Variadic functions wrote func Myfunc(args ...int) int {}
-// function calling functon called functional programming
+// Variadic functions wrote func Myfunc(args ...int) int {}
+// Function calling functon called functional programming
+// Function defer is called after the function complete
