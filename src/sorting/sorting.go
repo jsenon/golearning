@@ -14,7 +14,9 @@ type byName []Person
 type byAge []Person
 type byTown []Person
 
+// for custom sort
 // sort need len, less and swap func
+
 func (ps byName) Len() int {
 	return len(ps)
 }
@@ -64,4 +66,14 @@ func main() {
 	fmt.Println(kids)
 	sort.Sort(byTown(kids))
 	fmt.Println(kids)
+
+	//could be improve by sort slice but need go 1.8
+
+	sort.Slice(kids, func(i, j int) bool { return kids[i].Name < kids[j].Name })
+	fmt.Println("By Name quickly:", kids)
+	sort.Slice(kids, func(i, j int) bool { return kids[i].Age < kids[j].Age })
+	fmt.Println("By Age quickly:", kids)
+	sort.Slice(kids, func(i, j int) bool { return kids[i].Town < kids[j].Town })
+	fmt.Println("By Town quickly:", kids)
+
 }
