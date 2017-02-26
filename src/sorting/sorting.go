@@ -10,12 +10,13 @@ type Person struct {
 	Age  int
 	Town string
 }
-type byName []Person
-type byAge []Person
-type byTown []Person
 
 // for custom sort
 // sort need len, less and swap func
+
+type byName []Person
+type byAge []Person
+type byTown []Person
 
 func (ps byName) Len() int {
 	return len(ps)
@@ -53,6 +54,8 @@ func (ps byTown) Swap(i, j int) {
 	ps[i], ps[j] = ps[j], ps[i]
 }
 
+// All above could be deleted if we use new go 1.8
+
 func main() {
 	kids := []Person{
 		{"Martin", 2, "Nantes"},
@@ -60,6 +63,9 @@ func main() {
 		{"Chloe", 11, "Lyon"},
 		{"Luna", 8, "Lyon"},
 	}
+
+	// Below is for old sort
+
 	sort.Sort(byName(kids))
 	fmt.Println(kids)
 	sort.Sort(byAge(kids))
@@ -67,7 +73,7 @@ func main() {
 	sort.Sort(byTown(kids))
 	fmt.Println(kids)
 
-	//could be improve by sort slice but need go 1.8
+	// Could be improve by sort slice but need go 1.8
 
 	sort.Slice(kids, func(i, j int) bool { return kids[i].Name < kids[j].Name })
 	fmt.Println("By Name quickly:", kids)
