@@ -11,17 +11,17 @@ func distance(x1, y1, x2, y2 float64) float64 {
 	return math.Sqrt(a*a + b*b)
 }
 
-// Methods
+// ... is a variadic function, is allowed to be called with multiple value
 
 func totalArea(shapes ...Shape) float64 {
 	var area float64
 	for _, s := range shapes {
 		area += s.area()
+		fmt.Println("Im in total")
+
 	}
 	return area
 }
-
-// ... is a variadic function, is allowed to be called with multiple value
 
 type Circle struct {
 	x, y, ra float64
@@ -48,8 +48,10 @@ type Shape interface {
 func main() {
 	c := Circle{0, 0, 5}
 	r := Rectangle{0, 0, 10, 10}
+	r2 := Rectangle{0, 0, 5, 5}
 	fmt.Println("Rectangle Area is:", r.area())
+	fmt.Println("Rectangle2 Area is:", r2.area())
 	fmt.Println("Circle Area is:", c.area())
-	fmt.Println("Total Area is:", totalArea(&c, &r))
+	fmt.Println("Total Area is:", totalArea(&c, &r, &r2))
 
 }
