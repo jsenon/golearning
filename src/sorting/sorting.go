@@ -64,7 +64,7 @@ func main() {
 		{"Luna", 8, "Lyon"},
 	}
 
-	// Below is for old sort
+	// Bellow is for old sort
 
 	sort.Sort(byName(kids))
 	fmt.Println(kids)
