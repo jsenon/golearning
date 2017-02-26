@@ -17,10 +17,26 @@ func totalArea(shapes ...Shape) float64 {
 	var area float64
 	for _, s := range shapes {
 		area += s.area()
-		fmt.Println("Im in total")
-
 	}
 	return area
+}
+
+func totalPerimeter(shapes ...Perim) float64 {
+	var perimeter float64
+	for _, s := range shapes {
+		perimeter += s.perimeter()
+	}
+	return perimeter
+}
+
+func (c *Circle) perimeter() float64 {
+	return 2 * math.Pi * c.ra
+}
+
+func (r *Rectangle) perimeter() float64 {
+	l := distance(r.x1, r.y1, r.x1, r.y2)
+	w := distance(r.x1, r.y1, r.x2, r.y1)
+	return 2 * (l + w)
 }
 
 type Circle struct {
@@ -45,6 +61,10 @@ type Shape interface {
 	area() float64
 }
 
+type Perim interface {
+	perimeter() float64
+}
+
 func main() {
 	c := Circle{0, 0, 5}
 	r := Rectangle{0, 0, 10, 10}
@@ -53,5 +73,8 @@ func main() {
 	fmt.Println("Rectangle2 Area is:", r2.area())
 	fmt.Println("Circle Area is:", c.area())
 	fmt.Println("Total Area is:", totalArea(&c, &r, &r2))
-
+	fmt.Println("Rectangle Perimeter is:", r.perimeter())
+	fmt.Println("Rectangle2 Perimeter is:", r2.perimeter())
+	fmt.Println("Circle Perimeter is:", c.perimeter())
+	fmt.Println("Total Perimeter is:", totalPerimeter(&c, &r, &r2))
 }
