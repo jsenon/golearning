@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"packaging/math"
+	m "packaging/math"
 )
 
 func main() {
 	xs := []float64{1, 2, 3, 4}
-	avg := math.Average(xs)
+	avg := m.Average(xs)
 	fmt.Println(avg)
 }
