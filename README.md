@@ -1,1 +1,1 @@
-# Excercise for learning go
+# Exercise for learning go
