@@ -40,9 +40,9 @@ func main() {
 select {
 	case msg1 := < c1:
 		fmt.Println("Message 1", msg1)
-	case msg2 := < c1:
+	case msg2 := < c2:
 		fmt.Println("Message 2", msg1)
-	case <- time.After(time.Second) * 8:
+	case <- time.After(time.Second * 8):
 		fmt.Println("Timeout")
 	default:
 		fmt.Println("nothing ready")
